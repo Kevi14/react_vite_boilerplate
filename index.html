@@ -2,12 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Use the "referrer" meta tag to avoid sending the Referer header to other sites -->
+    <meta name="referrer" content="no-referrer" />
+    <!-- Set a default base URL for relative links -->
+    <base href="/" />
     <title>Vite + React + TS</title>
   </head>
   <body>
+    <!-- Add the "root" div for the React app to mount into -->
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- Use the "defer" attribute to ensure scripts don't block rendering -->
+    <script type="module" src="/src/main.tsx" defer></script>
   </body>
 </html>
