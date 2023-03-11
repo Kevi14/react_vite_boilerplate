@@ -1,0 +1,10 @@
+{
+    "data": [
+        {
+            "name": "Project 1",
+            "path": "/project1",
+            "protected": false,
+            "element": "asd/App"
+        }
+    ]
+}
