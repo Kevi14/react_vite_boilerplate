@@ -13,7 +13,7 @@ export const useGetEmployees = () => {
 
 export const useGetEmployee = (id: any) => {
   return useQuery({
-    queryKey: ['employees',id],
+    queryKey: ['employees', id],
     queryFn: () => getEmployeeById(id),
   })
 }

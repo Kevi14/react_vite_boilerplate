@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import { Card, Table, Input } from 'antd';
-import { useGetEmployees } from '@queries/Employees';
-import EmployeeModal from './Mod';
+import { useState } from 'react'
+import { Card, Table, Input } from 'antd'
+import { useGetEmployees } from '@queries/Employees'
+import EmployeeModal from './Mod'
 
-const { Search } = Input;
+const { Search } = Input
 
 export const Dashboard = () => {
-  const [searchValue, setSearchValue] = useState(0);
-  const [selectedEmployeeId, setSelectedEmployeeId] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState(0)
+  const [selectedEmployeeId, setSelectedEmployeeId] = useState(0)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const { isLoading: isLoadingEmployees, data: employees } = useGetEmployees();
+  const { isLoading: isLoadingEmployees, data: employees } = useGetEmployees()
   const columns = [
     {
       title: 'ID',
@@ -27,10 +27,10 @@ export const Dashboard = () => {
       dataIndex: 'email',
       key: 'email',
     },
-  ];
+  ]
 
   if (isLoadingEmployees) {
-    return <p>There was an error fetching employees</p>;
+    return <p>There was an error fetching employees</p>
   }
 
   return (
@@ -40,24 +40,23 @@ export const Dashboard = () => {
           value={searchValue}
           placeholder="Search by employee ID"
           onSearch={() => {
-            setSelectedEmployeeId(searchValue);
-            setIsModalOpen(true);
+            setSelectedEmployeeId(searchValue)
+            setIsModalOpen(true)
           }}
-          onChange={e =>{setSearchValue(e.target.value)}}
+          onChange={e => {
+            setSearchValue(e.target.value)
+          }}
           enterButton
         />
-        <Table
-          columns={columns}
-          dataSource={employees.results}
-          rowKey="name"
-          loading={isLoadingEmployees}
-        />
+        <Table columns={columns} dataSource={employees.results} rowKey="name" loading={isLoadingEmployees} />
       </Card>
-     {isModalOpen && <EmployeeModal
-        selectedEmployeeId={selectedEmployeeId}
-        isModalOpen={isModalOpen}
-        onCancel={() => setIsModalOpen(false)}
-      />}
+      {isModalOpen && (
+        <EmployeeModal
+          selectedEmployeeId={selectedEmployeeId}
+          isModalOpen={isModalOpen}
+          onCancel={() => setIsModalOpen(false)}
+        />
+      )}
     </>
-  );
-};
+  )
+}

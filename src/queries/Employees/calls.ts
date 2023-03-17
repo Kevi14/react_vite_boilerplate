@@ -7,6 +7,6 @@ export const getEmployees = async () => {
 
 export const getEmployeeById = async (id: any) => {
   const response = await api.get(`/pokemon/${id}`)
-  console.log("DATA" ,response)
+  console.log('DATA', response)
   return response.data
 }
