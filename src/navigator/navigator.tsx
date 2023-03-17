@@ -3,10 +3,7 @@ import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
 // import { Components } from 'views'; // Commented out for now
 import { routes } from './routes'
-import { useProjectRoutes } from '../hooks/useGetProjects'
 const Navigator = () => {
-  const otherProjectRoutes = useProjectRoutes()
-  const allRoutes = [...routes,...otherProjectRoutes]
   return (
     <>
       <Routes>
@@ -14,7 +11,7 @@ const Navigator = () => {
         {/* <Route path="/components" element={<Components />} /> */}
 
         {/* Map over the routes array and render each route */}
-        {allRoutes.map(route => (
+        {routes.map(route => (
           <Route
             key={route.name} // Use the route's name as the key
             path={route.path} // Use the route's path
