@@ -44,7 +44,7 @@ export const Dashboard = () => {
             setIsModalOpen(true)
           }}
           onChange={e => {
-            setSearchValue(e.target.value)
+            setSearchValue(parseInt(e.target.value))
           }}
           enterButton
         />
