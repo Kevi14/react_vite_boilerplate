@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom'
-import { Navigator } from './navigator'
+
 import { ConfigProvider, theme } from 'antd'
-import { Suspense } from 'react'
+import { Navigator } from './navigator'
 
 const App = () => {
   return (
@@ -13,13 +13,11 @@ const App = () => {
         },
       }}
     >
-      <div className="App">
-        <Suspense fallback={<div>Loading...</div>}>
-          <BrowserRouter>
-            <Navigator />
-          </BrowserRouter>
-        </Suspense>
-      </div>
+      {/* <Suspense fallback={<div>Loading...</div>}> */}
+      <BrowserRouter>
+        <Navigator />
+      </BrowserRouter>
+      {/* </Suspense> */}
     </ConfigProvider>
   )
 }

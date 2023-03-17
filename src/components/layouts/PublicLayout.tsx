@@ -3,7 +3,6 @@ import { Layout } from 'antd'
 
 const { Content } = Layout
 
-
 interface Props {
   children?: React.ReactNode
 }
